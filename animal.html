@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal{
+            constructor(name_value,average_age_value,habitent_value){
+              this.name=name_value;
+              this.average_age=average_age_value;
+              this.habitent=habitent_value;
+            }
+            speak(language){
+                return `${this.name} speak in ${language}`;
+            }
+        }
+        //Inheritance
+        class Human extends Animal{
+            constructor(name_value,average_age_value,habitent_value,location_value,gender_value){
+                super(name_value,average_age_value,habitent_value)
+                this.location=location_value;
+                this.gender=gender_value;
+            }
+
+
+        }
+        let khalid=new Human("khalid",22,"land","Dhaka","Male");
+        console.log(khalid.name,khalid.average_age,khalid.gender,khalid.speak("Bangla"));
+        let animal1=new Animal("Dog",10,"Land");
+        let animal2=new Animal("Fish",5,"water");
+        console.log(animal1);
+        console.log(animal2);
+        class Pet extends Animal{
+            constructor(name_value,average_age_value,habitent_value,isVaccenied,owner_name){
+            super(name_value,average_age_value,habitent_value)
+            this.isVaccenied=isVaccenied;
+            this.owner_name=owner_name;
+            }
+            speak(){
+                return `${this.name} barks in evening`;
+            }
+            vocalcord(){
+                `${this.name} barks in evening`;
+            }
+            walk(){
+                return `${this.name} waiks in park 7`
+            }
+            //Encapsulation
+            setName(name){
+                this.name=name;
+            }
+            getName(){
+                return this.name;
+            }
+        }
+        let dog=new Pet("Mark",6,"Land",true,"Rashed");
+        console.log(dog.walk(),dog.speak());
+        dog.setName                                                                                                                                                                                                                                                                                                                         ("Bulldog");
+        console.log(dog.getName());
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person={
+             firstName:"john",
+             lastname:"Doe",
+             age:25,
+             isStudent: true,
+             hobbies:["reading","coding","football"],
+             address: {
+                street:"123 Main St",
+                city:"New York",
+                zip:"1001"
+             }
+        };
+        const {firstName,lastname,address:{zip,city,street}}=person;
+        console.log(city);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<body>
+    <h1>CRUD</h1>
+    <button onclick="addProduct(newProduct)"
+    class="btn btn-info">Add Product</button>
+    <div class="container">
+        <div class="row gap-5 cards_show">
+
+        </div>
+    </div>
+    <script>
+        let newProduct={id:5,name:"phone",price:1500, img:"phone.jpg",qty:1,description:"good"};
+
+        let products=[{id:1, name:"pen", price:20,img:"pen.jpg",qty:1, description:"good"},
+            {id:2, name:"pencil", price:15,img:"pencil.jpg",qty:1, description:"good"},
+            {id:3, name:"notebook", price:25,img:"notebook.jpg",qty:1, description:"good"},
+            {id:4, name:"foodbox", price:250,img:"foodbox.jpg",qty:1, description:"good"},
+];
+printProduct()
+//Delete
+ function deleteProduct(id){
+    products=products.filter((product)=>{
+        return product.id != id;
+    })
+    printProduct()
+ }
+ //read
+ function printProduct(){
+    let html="";
+    products.forEach((product)=>{
+        //console.log(product.price,product.name);
+        html+=`
+        <div class="col-md-3" style="width: 18rem;">
+  <img src="img/${product.img}"  alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${product.name}</h5>
+    <p class="card-text">${product.price}</p>
+  </div>
+
+<div class="card-footer">
+    <a href="#" class="btn btn-primary"">Add To Cart</a>
+    <a onclick="deleteProduct(${product.id})" class="btn btn-danger">Delete</a>
+    </div>
+    </div>
+    </div>
+    `;
+    });
+    document.querySelector(".cards_show").innerHTML=html;
+ }
+ //update
+ let newproducts=products.map((product)=>{
+    if(product.id==3){
+    return{...product,price:35}
+    }
+    return product;
+ })
+ console.log("products",products);
+ console.log("newproducts",newproducts);
+ //create
+ function addProduct(newProduct){
+    products.push(newProduct);
+    printProduct()
+ }
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Creating an object literal
+        let person = {
+            firstName:"john",
+            lastName:"Doe",
+            age:26,
+            isStudent:true,
+        };
+        let person2 = {
+            firstName : "Rashed",
+            lastName: "Khan",
+            age:22,
+            isStudent: true,
+            fullName:function(){
+                console.log(this.firstName + " " + this.lastName);
+                
+            }
+        }
+        //constructor
+        function person3(firstName,lastName,age,isStudent){
+          this.firstName=  firstName;
+          this.lastName = lastName;
+          this.age= age;
+          this.isStudent= isStudent; 
+          this.fullName=function(){
+            console.log(this.firstName + " " + this.lastName);
+            
+
+          }
+           person3.prototype.fullName
+        }
+        let jayed=new person3("jayed","Hasan",22,true);
+        let masud=new person3("masud","Hasan",22,true);
+         console.log(jayed);
+         class personBlueprint{
+               constructor(firstName1,lastName1,age1,isStudent1){
+                this.firstName=  firstName1;
+                this.lastName = lastName1;
+                this.age= age1;
+                this.isStudent= isStudent1;
+               }
+               fullName(){
+                console.log(this.firstName + " " + this.lastName);
+                
+               }
+         }
+         let khalid=new personBlueprint("khalid","Hasan",22,true);
+         khalid.fullName();
+         person2.fullName();
+         masud.fullName();console.log(khalid);
+         masud.fullName();console.log(jayed);
+         
+         
+    </script>
+</body>
+</html>
